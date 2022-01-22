@@ -1,15 +1,17 @@
 let letterCount = 5;
 const words = {};
+const commonWords = {};
 let word;
 let wordCounts = {};
 let guesses = 0;
 let letters = [];
+let normalMode = true;
 
 (async () => {
   const $ = (x) => document.querySelector(x);
   const $$ = (x) => document.querySelectorAll(x);
 
-  await fetch("infinitle.txt")
+  let p1 = fetch("infinitle.txt")
     .then((x) => x.text())
     .then((x) => {
       x.split("\n").forEach((y, i) => {
@@ -17,12 +19,31 @@ let letters = [];
       });
     });
 
+  let p2 = fetch("infinitle-common.txt")
+    .then((x) => x.text())
+    .then((x) => {
+      x.split("\n").forEach((y, i) => {
+        commonWords[i + 2] = y.trim().split(" ");
+      });
+    });
+  
+  await p1;
+  await p2;
+  
+  function changeMode() {
+    $('#letter-count-r').max = $('#normal-mode-c').checked ? 15 : 36;
+    normalMode = $('#normal-mode-c').checked;
+  }
+
+  changeMode();
+  $('#normal-mode-c').addEventListener('input', changeMode);
+
   function makeLetterBoxes() {
     closeAnnouncement();
     letters = [];
     guesses = 0;
     $$(".guess-letters").forEach((x) => (x.innerHTML = '<div class="guess-letter"></div>'.repeat(letterCount)));
-    word = words[letterCount][Math.random() * words[letterCount].length | 0].toUpperCase();
+    word = (normalMode ? commonWords : words)[letterCount][Math.random() * (normalMode ? commonWords : words)[letterCount].length | 0].toUpperCase();
     wordCounts = {};
     word.split("").forEach((x) => (wordCounts[x] = (wordCounts[x] || 0) + 1));
     $$('.guess-letter').forEach(x => x.style.height = x.clientWidth + 4 + 'px');
@@ -90,13 +111,20 @@ let letters = [];
     }
     guesses++;
     if (guesses === 6) {
-      return makeAnnouncement("You lost!<br><button class='play-again'>Play Again</button>", "red", false);
-      $('.play-again').addEventListener('click', () => {
+      makeAnnouncement(`You lost! The word was ${word}.<br><button class='play-again'>Play Again</button>`, "red", false);
+      return $('.play-again').addEventListener('click', () => {
         makeLetterBoxes();
       });
     }
     letters = [];
   }
+
+  $('.give-up').addEventListener('click', () => {
+    makeAnnouncement(`The word was ${word}.<br><button class='play-again'>Play Again</button>`, "dodgerblue", false);
+    $('.play-again').addEventListener('click', () => {
+      makeLetterBoxes();
+    });
+  });
 
   makeLetterBoxes();
 

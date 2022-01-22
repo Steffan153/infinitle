@@ -22,14 +22,14 @@
       <div class="desc">
         This is a <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> clone, but you can customize the letter count and do it as
         many times per day as you want.
-        <br />
-        <br />
-        <span style="color: red">You may or may not know the word it's thinking of, as this uses a full dictionary to choose from.</span>
       </div>
-      <div class="letter-count">
-        <label for="letter-count-r">Letters:</label>
-        <div class="letter-count-s">5</div>
-        <input type="range" id="letter-count-r" min="2" max="36" value="5" />
+      <div class="lc-gu">
+        <div class="letter-count">
+          <label for="letter-count-r">Letters:</label>
+          <div class="letter-count-s">5</div>
+          <input type="range" id="letter-count-r" min="2" max="15" value="5" />
+        </div>
+        <button class="give-up">Give Up</button>
       </div>
       <div class="guesses">
         <div class="guess-letters"></div>
@@ -78,6 +78,11 @@
       </div>
 
       <div class="announcement"></div>
+
+      <div class="normal-mode">
+        <input type="checkbox" id="normal-mode-c" checked>
+        Normal Mode (only uses words that people actually know)
+      </div>
     </div>
     <script src="infinitle.js"></script>
   </body>

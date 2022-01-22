@@ -34,7 +34,6 @@ body {
 .letter-count {
   display: flex;
   gap: 10px;
-  width: 100%;
   justify-content: center;
 }
 
@@ -210,6 +209,23 @@ input[type="range"]::-moz-range-thumb {
   background-color: #0b5eb1;
 }
 
+.give-up {
+  background-color: #d02f2f;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 4px 13px;
+  border: none;
+  color: white;
+  font-family: inherit;
+  transition: box-shadow .2s, background-color .2s;
+  white-space: nowrap;  
+}
+
+.give-up:hover {
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.3);
+  background-color: #7e1d1d;
+}
+
 a {
   color: dodgerblue;
   text-decoration: none;
@@ -217,4 +233,17 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.normal-mode {
+  margin-top: 30px;
+}
+
+.lc-gu {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 10px;
 }
