@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinitle</title>
+    <link rel="stylesheet" href="infinitle.css" />
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter:regular" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Infinitle</div>
+      <div class="desc">
+        This is a <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> clone, but you can customize the letter count and do it as
+        many times per day as you want.
+        <br />
+        <br />
+        <span style="color: red">You may or may not know the word it's thinking of, as this uses a full dictionary to choose from.</span>
+      </div>
+      <div class="letter-count">
+        <label for="letter-count-r">Letters:</label>
+        <div class="letter-count-s">5</div>
+        <input type="range" id="letter-count-r" min="2" max="36" value="5" />
+      </div>
+      <div class="guesses">
+        <div class="guess-letters"></div>
+        <div class="guess-letters"></div>
+        <div class="guess-letters"></div>
+        <div class="guess-letters"></div>
+        <div class="guess-letters"></div>
+        <div class="guess-letters"></div>
+      </div>
+
+      <div class="keyboard">
+        <div class="key-row">
+          <div class="key-letter">Q</div>
+          <div class="key-letter">W</div>
+          <div class="key-letter">E</div>
+          <div class="key-letter">R</div>
+          <div class="key-letter">T</div>
+          <div class="key-letter">Y</div>
+          <div class="key-letter">U</div>
+          <div class="key-letter">I</div>
+          <div class="key-letter">O</div>
+          <div class="key-letter">P</div>
+        </div>
+        <div class="key-row">
+          <div class="key-letter">A</div>
+          <div class="key-letter">S</div>
+          <div class="key-letter">D</div>
+          <div class="key-letter">F</div>
+          <div class="key-letter">G</div>
+          <div class="key-letter">H</div>
+          <div class="key-letter">J</div>
+          <div class="key-letter">K</div>
+          <div class="key-letter">L</div>
+        </div>
+        <div class="key-row">
+          <div class="key-backspace">⌫</div>
+          <div class="key-letter">Z</div>
+          <div class="key-letter">X</div>
+          <div class="key-letter">C</div>
+          <div class="key-letter">V</div>
+          <div class="key-letter">B</div>
+          <div class="key-letter">N</div>
+          <div class="key-letter">M</div>
+          <div class="key-enter">&#x21b5;</div>
+        </div>
+      </div>
+
+      <div class="announcement"></div>
+    </div>
+    <script src="infinitle.js"></script>
+  </body>
+</html>
