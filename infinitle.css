@@ -4,6 +4,10 @@
   font-display: swap;
 }
 
+html {
+  font-size: 25px;
+}
+
 body {
   padding: 5px 20px;
   display: flex;
@@ -108,8 +112,7 @@ input[type="range"]::-moz-range-thumb {
 
 .guess-letter {
   border: 2px solid #ccc;
-  flex: 0 1 30px;
-  border-radius: 5px;
+  flex: 0 1 1.8rem;
   padding: 2px;
   display: flex;
   box-sizing: border-box;
@@ -144,9 +147,10 @@ input[type="range"]::-moz-range-thumb {
 
 .key-row div {
   background-color: #ddd;
-  border-radius: 10px;
   padding: 8px 5px;
   cursor: pointer;
+  flex: 1;
+  border-radius: 5px;
   transition: box-shadow .2s;
   user-select: none;
 }
@@ -216,6 +220,7 @@ input[type="range"]::-moz-range-thumb {
   padding: 4px 13px;
   border: none;
   color: white;
+  font-size: 0.7rem;
   font-family: inherit;
   transition: box-shadow .2s, background-color .2s;
   white-space: nowrap;  
@@ -237,6 +242,7 @@ a:hover {
 
 .normal-mode {
   margin-top: 30px;
+  font-size: 0.8rem;
 }
 
 .lc-gu {
